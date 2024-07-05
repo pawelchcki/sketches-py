@@ -1,3 +1,6 @@
+from pkg_resources import DistributionNotFound
+
+
 def get_version():
     # type: () -> str
     """Return the package version.
@@ -14,4 +17,7 @@ def get_version():
     except ImportError:
         import pkg_resources
 
-        return pkg_resources.get_distribution(__name__).version
+        try:
+            return pkg_resources.get_distribution(__name__).version
+        except DistributionNotFound:
+            return "0+unknown"

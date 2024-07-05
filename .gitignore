@@ -9,3 +9,8 @@ ddsketch/__version.py
 build/
 dist/
 *.egg-info/
+
+.venv/
+
+# Ignore nix build result
+/result
